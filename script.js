@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 const SUPABASE_URL = "https://efwmydmgeghvpjwuwqrr.supabase.co";
 const SUPABASE_ANON_KEY = "sb_publishable_ieuGWCcKFGR9rvXGu4kQ2g_jxULiX0k";
 
@@ -39,15 +38,4 @@ async function subscribe() {
     alert("Something went wrong. Please try again.");
     console.error(error);
   }
-=======
-function subscribe() {
-  const email = document.getElementById("email").value;
-
-  if (email === "") {
-    alert("Please enter your email");
-    return;
-  }
-
-  alert("Thanks! We'll notify you when Automind Lab launches.");
->>>>>>> b8759a0680eed95d14ffe9c3e74ca5875cdb9948
 }
