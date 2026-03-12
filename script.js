@@ -32,6 +32,35 @@ function setStatus(message, type = "default") {
   }
 }
 
+async function loadWaitlistCount() {
+  try {
+    const response = await fetch(
+      `${SUPABASE_URL}/rest/v1/waitlist?select=id`,
+      {
+        headers: {
+          apikey: SUPABASE_ANON_KEY,
+          Authorization: `Bearer ${SUPABASE_ANON_KEY}`
+        }
+      }
+    );
+
+    const data = await response.json();
+    const count = data.length;
+
+    const counter = document.getElementById("waitlist-count");
+
+    if (count === 0) {
+      counter.textContent = "Be the first to join the waitlist.";
+    } else if (count === 1) {
+      counter.textContent = "Join 1 person waiting for launch.";
+    } else {
+      counter.textContent = `Join ${count} people waiting for launch.`;
+    }
+  } catch (err) {
+    console.error(err);
+  }
+}
+
 async function subscribe() {
   const emailInput = document.getElementById("email");
   const button = document.querySelector(".signup button");
@@ -82,3 +111,5 @@ async function subscribe() {
     emailInput.disabled = false;
   }
 }
+
+loadWaitlistCount();
