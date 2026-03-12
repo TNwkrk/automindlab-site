@@ -61,3 +61,10 @@ opacity:.5;
   font-size:14px;
   transition:opacity .25s ease;
 }
+
+#waitlist-count {
+  margin-top: 16px;
+  font-size: 14px;
+  color: rgba(245, 247, 250, 0.72);
+  min-height: 20px;
+}
